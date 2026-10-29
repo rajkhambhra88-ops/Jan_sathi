@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b5d">
+<title>जन-साथी | आपकी हर जरूरत में मदद</title>
+<style>
+:root {
+  --blue:#123b5d;
+  --light:#e8f5ff;
+  --bg:#f4f7fb;
+  --text:#192638;
+  --muted:#5c6b7a;
+  --white:#fff;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+header {
+  background:linear-gradient(135deg,#123b5d,#176b87);
+  color:white;
+  padding:25px 18px 22px;
+  border-radius:0 0 25px 25px;
+}
+.brand { display:flex; align-items:center; gap:12px; }
+.logo {
+  width:52px;height:52px;border-radius:16px;
+  display:grid;place-items:center;
+  background:#ffffff25;font-size:29px;
+}
+h1 { margin:0;font-size:26px; }
+header p { margin:5px 0 18px;color:#e0f2fe; }
+.search {
+  display:flex;gap:8px;background:white;
+  padding:5px;border-radius:14px;
+}
+.search input {
+  width:100%;min-width:0;border:0;outline:0;
+  padding:12px;font-size:16px;color:#192638;
+}
+main { max-width:760px;margin:auto;padding:18px 14px 30px; }
+h2 { font-size:19px;margin:8px 0 13px; }
+.quick {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:11px;margin-bottom:23px;
+}
+.tile {
+  border:1px solid #e0e7ef;background:white;
+  border-radius:16px;padding:15px 12px;
+  text-align:left;cursor:pointer;color:var(--text);
+  font:inherit;min-height:105px;
+}
+.tile .emoji { font-size:27px;display:block;margin-bottom:7px; }
+.tile strong { font-size:15px; }
+.tile small { display:block;color:var(--muted);margin-top:4px; }
+.service {
+  background:white;border:1px solid #e0e7ef;
+  border-radius:16px;padding:15px;margin-bottom:12px;
+}
+.service-top { display:flex;gap:11px;align-items:flex-start; }
+.service-icon { font-size:27px; }
+.service h3 { margin:0 0 5px;font-size:17px; }
+.service p { margin:0;color:var(--muted);font-size:14px;line-height:1.5; }
+.tag { display:inline-block;background:var(--light);color:#124b70;
+  padding:4px 8px;border-radius:8px;font-size:12px;margin-top:8px; }
+.actions { display:flex;flex-wrap:wrap;gap:8px;margin-top:13px; }
+.btn {
+  display:inline-block;text-decoration:none;text-align:center;
+  padding:10px 12px;border-radius:10px;font-weight:600;font-size:14px;
+}
+.primary { background:var(--blue);color:white; }
+.secondary { background:#e7f7ed;color:#176534; }
+.note {
+  background:#fff8df;border:1px solid #f1dfa0;
+  border-radius:13px;padding:13px;font-size:13px;
+  line-height:1.6;color:#59471b;margin:18px 0;
+}
+#empty { display:none;text-align:center;padding:25px;color:var(--muted); }
+footer { text-align:center;color:var(--muted);font-size:12px;padding:20px; }
+button:focus-visible,a:focus-visible { outline:3px solid #f4b942; }
+@media(min-width:600px) {
+  .quick { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">🤝</div>
+    <div>
+      <h1>जन-साथी</h1>
+      <div>आपकी हर जरूरत में मदद</div>
+    </div>
+  </div>
+  <p>सही सेवा खोजें, आवेदन का रास्ता पाएँ और दूसरों की मदद करें।</p>
+  <div class="search">
+    <input id="search" type="search"
+      placeholder="जैसे PAN, राशन कार्ड, लाइसेंस..."
+      aria-label="सरकारी सेवा खोजें">
+  </div>
+</header>
+
+<main>
+  <h2>आपको कौन-सा काम करवाना है?</h2>
+  <div class="quick">
+    <button class="tile" data-filter="लाइसेंस वाहन ड्राइविंग">
+      <span class="emoji">🚗</span><strong>लाइसेंस और वाहन</strong>
+      <small>ड्राइविंग लाइसेंस, वाहन</small>
+    </button>
+    <button class="tile" data-filter="PAN पैन पहचान">
+      <span class="emoji">🪪</span><strong>पहचान और PAN</strong>
+      <small>PAN और अन्य सेवाएँ</small>
+    </button>
+    <button class="tile" data-filter="राशन परिवार">
+      <span class="emoji">🌾</span><strong>राशन कार्ड</strong>
+      <small>राशन कार्ड संबंधी सेवा</small>
+    </button>
+    <button class="tile" data-filter="प्रमाणपत्र निवास आय जन्म">
+      <span class="emoji">📄</span><strong>प्रमाणपत्र</strong>
+      <small>आय, निवास, जन्म आदि</small>
+    </button>
+    <button class="tile" data-filter="पेंशन योजना सहायता">
+      <span class="emoji">🤲</span><strong>पेंशन और सहायता</strong>
+      <small>योजना और पात्रता</small>
+    </button>
+    <button class="tile" data-filter="सभी सेवाएँ UMANG">
+      <span class="emoji">📱</span><strong>अन्य सरकारी सेवाएँ</strong>
+      <small>एक जगह कई सेवाएँ</small>
+    </button>
+  </div>
+
+  <h2 id="listHeading">उपयोगी सरकारी सेवाएँ</h2>
+  <div id="services">
+    <article class="service" data-key="लाइसेंस ड्राइविंग वाहन सारथी">
+      <div class="service-top">
+        <span class="service-icon">🚗</span>
+        <div>
+          <h3>ड्राइविंग लाइसेंस</h3>
+          <p>नया लाइसेंस, नवीनीकरण और संबंधित सेवाओं के लिए सरकारी पोर्टल खोलें।</p>
+          <span class="tag">केंद्र सरकार</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://sarathi.parivahan.gov.in/">सरकारी सेवा खोलें ↗</a>
+        <button class="btn secondary share"
+          data-title="ड्राइविंग लाइसेंस"
+          data-url="https://sarathi.parivahan.gov.in/">WhatsApp पर भेजें</button>
+      </div>
+    </article>
+
+    <article class="service" data-key="PAN पैन कार्ड पहचान आयकर">
+      <div class="service-top">
+        <span class="service-icon">🪪</span>
+        <div>
+          <h3>PAN कार्ड</h3>
+          <p>PAN संबंधी आधिकारिक जानकारी और आयकर विभाग की सेवाएँ देखें।</p>
+          <span class="tag">केंद्र सरकार</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://www.incometax.gov.in/iec/foportal/">आयकर वेबसाइट खोलें ↗</a>
+        <button class="btn secondary share"
+          data-title="PAN कार्ड"
+          data-url="https://www.incometax.gov.in/iec/foportal/">WhatsApp पर भेजें</button>
+      </div>
+    </article>
+
+    <article class="service" data-key="राशन कार्ड पंजाब परिवार खाद्य">
+      <div class="service-top">
+        <span class="service-icon">🌾</span>
+        <div>
+          <h3>पंजाब राशन कार्ड</h3>
+          <p>नया राशन कार्ड और संबंधित सेवाओं के लिए पंजाब का पोर्टल देखें। प्रक्रिया की पुष्टि वहाँ करें।</p>
+          <span class="tag">पंजाब सरकार</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://ercms.punjab.gov.in/PublicLogin/frmPublicLogin.aspx">पोर्टल खोलें ↗</a>
+        <button class="btn secondary share"
+          data-title="पंजाब राशन कार्ड"
+          data-url="https://ercms.punjab.gov.in/PublicLogin/frmPublicLogin.aspx">WhatsApp पर भेजें</button>
+      </div>
+    </article>
+
+    <article class="service" data-key="प्रमाणपत्र निवास आय जन्म पंजाब सेवा">
+      <div class="service-top">
+        <span class="service-icon">📄</span>
+        <div>
+          <h3>पंजाब ई-सेवाएँ</h3>
+          <p>उपलब्ध प्रमाणपत्रों और नागरिक सेवाओं की जानकारी खोजें। हर सेवा की पात्रता और प्रक्रिया अलग हो सकती है।</p>
+          <span class="tag">पंजाब सरकार</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://eservices.punjab.gov.in/">ई-सेवाएँ खोलें ↗</a>
+        <button class="btn secondary share"
+          data-title="पंजाब ई-सेवाएँ"
+          data-url="https://eservices.punjab.gov.in/">WhatsApp पर भेजें</button>
+      </div>
+    </article>
+
+    <article class="service" data-key="पेंशन सरकारी योजना सहायता पात्रता">
+      <div class="service-top">
+        <span class="service-icon">🤲</span>
+        <div>
+          <h3>सरकारी योजनाएँ और सहायता</h3>
+          <p>उम्र, काम, राज्य और पात्रता के अनुसार योजनाएँ खोजने के लिए सरकारी पोर्टल खोलें।</p>
+          <span class="tag">केंद्र और राज्य</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://www.myscheme.gov.in/">योजनाएँ खोजें ↗</a>
+        <button class="btn secondary share"
+          data-title="सरकारी योजनाएँ"
+          data-url="https://www.myscheme.gov.in/">WhatsApp पर भेजें</button>
+      </div>
+    </article>
+
+    <article class="service" data-key="सभी सेवाएँ UMANG केंद्र राज्य बिल आवेदन">
+      <div class="service-top">
+        <span class="service-icon">📱</span>
+        <div>
+          <h3>UMANG — कई सरकारी सेवाएँ</h3>
+          <p>केंद्र और राज्य की उपलब्ध डिजिटल सेवाएँ, दस्तावेज़ और आवेदन संबंधी विकल्प खोजें।</p>
+          <span class="tag">आधिकारिक डिजिटल प्लेटफॉर्म</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://web.umang.gov.in/">UMANG खोलें ↗</a>
+        <button class="btn secondary share"
+          data-title="UMANG सरकारी सेवाएँ"
+          data-url="https://web.umang.gov.in/">WhatsApp पर भेजें</button>
+      </div>
+    </article>
+  </div>
+
+  <div id="empty">इस नाम से सेवा नहीं मिली। दूसरा शब्द लिखकर खोजें।</div>
+
+  <div class="note">
+    <strong>जरूरी सावधानी:</strong> जन-साथी एक स्वतंत्र सहायता वेबसाइट है, सरकारी वेबसाइट नहीं।
+    आवेदन की पात्रता, शुल्क और अंतिम प्रक्रिया संबंधित सरकारी पोर्टल पर जाँचें।
+    किसी अनजान व्यक्ति को OTP, पासवर्ड या बैंक PIN न दें।
+  </div>
+  <p style="text-align:center;font-size:14px">
+    <a href="https://www.india.gov.in/" target="_blank" rel="noopener">
+      भारत सरकार का राष्ट्रीय पोर्टल
+    </a>
+  </p>
+</main>
+
+<footer>जन-साथी · शुरुआती परीक्षण संस्करण</footer>
+
+<script>
+const search = document.getElementById("search");
+const cards = [...document.querySelectorAll(".service")];
+const empty = document.getElementById("empty");
+const heading = document.getElementById("listHeading");
+
+function filterServices(value) {
+  const query = value.trim().toLocaleLowerCase("hi");
+  let shown = 0;
+  cards.forEach(card => {
+    const text = (card.innerText + " " + card.dataset.key).toLocaleLowerCase("hi");
+    const match = !query || text.includes(query);
+    card.style.display = match ? "" : "none";
+    if (match) shown++;
+  });
+  empty.style.display = shown ? "none" : "block";
+  heading.textContent = query ? "खोज के परिणाम" : "उपयोगी सरकारी सेवाएँ";
+}
+
+search.addEventListener("input", () => filterServices(search.value));
+
+document.querySelectorAll(".tile").forEach(tile => {
+  tile.addEventListener("click", () => {
+    search.value = tile.dataset.filter.split(" ")[0];
+    filterServices(search.value);
+    document.getElementById("services").scrollIntoView({behavior:"smooth"});
+  });
+});
+
+document.querySelectorAll(".share").forEach(button => {
+  button.addEventListener("click", () => {
+    const title = button.dataset.title;
+    const url = button.dataset.url;
+    const message = "जन-साथी से जानकारी:\n" + title +
+      "\nआधिकारिक वेबसाइट: " + url +
+      "\nआवेदन की पात्रता और प्रक्रिया वेबसाइट पर जाँचें।";
+    const whatsapp = "https://wa.me/?text=" + encodeURIComponent(message);
+    window.open(whatsapp, "_blank", "noopener");
+  });
+});
+</script>
+</body>
+</html>
