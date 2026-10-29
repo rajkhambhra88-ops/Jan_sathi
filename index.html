@@ -1,307 +1,35 @@
-
 <!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#123b5d">
-<title>जन-साथी | आपकी हर जरूरत में मदद</title>
+<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b5cab"><title>जन-साथी | सरकारी सेवाएँ</title>
 <style>
-:root {
-  --blue:#123b5d;
-  --light:#e8f5ff;
-  --bg:#f4f7fb;
-  --text:#192638;
-  --muted:#5c6b7a;
-  --white:#fff;
-}
-* { box-sizing:border-box; }
-body {
-  margin:0;
-  font-family:system-ui,-apple-system,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-header {
-  background:linear-gradient(135deg,#123b5d,#176b87);
-  color:white;
-  padding:25px 18px 22px;
-  border-radius:0 0 25px 25px;
-}
-.brand { display:flex; align-items:center; gap:12px; }
-.logo {
-  width:52px;height:52px;border-radius:16px;
-  display:grid;place-items:center;
-  background:#ffffff25;font-size:29px;
-}
-h1 { margin:0;font-size:26px; }
-header p { margin:5px 0 18px;color:#e0f2fe; }
-.search {
-  display:flex;gap:8px;background:white;
-  padding:5px;border-radius:14px;
-}
-.search input {
-  width:100%;min-width:0;border:0;outline:0;
-  padding:12px;font-size:16px;color:#192638;
-}
-main { max-width:760px;margin:auto;padding:18px 14px 30px; }
-h2 { font-size:19px;margin:8px 0 13px; }
-.quick {
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:11px;margin-bottom:23px;
-}
-.tile {
-  border:1px solid #e0e7ef;background:white;
-  border-radius:16px;padding:15px 12px;
-  text-align:left;cursor:pointer;color:var(--text);
-  font:inherit;min-height:105px;
-}
-.tile .emoji { font-size:27px;display:block;margin-bottom:7px; }
-.tile strong { font-size:15px; }
-.tile small { display:block;color:var(--muted);margin-top:4px; }
-.service {
-  background:white;border:1px solid #e0e7ef;
-  border-radius:16px;padding:15px;margin-bottom:12px;
-}
-.service-top { display:flex;gap:11px;align-items:flex-start; }
-.service-icon { font-size:27px; }
-.service h3 { margin:0 0 5px;font-size:17px; }
-.service p { margin:0;color:var(--muted);font-size:14px;line-height:1.5; }
-.tag { display:inline-block;background:var(--light);color:#124b70;
-  padding:4px 8px;border-radius:8px;font-size:12px;margin-top:8px; }
-.actions { display:flex;flex-wrap:wrap;gap:8px;margin-top:13px; }
-.btn {
-  display:inline-block;text-decoration:none;text-align:center;
-  padding:10px 12px;border-radius:10px;font-weight:600;font-size:14px;
-}
-.primary { background:var(--blue);color:white; }
-.secondary { background:#e7f7ed;color:#176534; }
-.note {
-  background:#fff8df;border:1px solid #f1dfa0;
-  border-radius:13px;padding:13px;font-size:13px;
-  line-height:1.6;color:#59471b;margin:18px 0;
-}
-#empty { display:none;text-align:center;padding:25px;color:var(--muted); }
-footer { text-align:center;color:var(--muted);font-size:12px;padding:20px; }
-button:focus-visible,a:focus-visible { outline:3px solid #f4b942; }
-@media(min-width:600px) {
-  .quick { grid-template-columns:repeat(3,minmax(0,1fr)); }
-}
-</style>
-</head>
-<body>
-<header>
-  <div class="brand">
-    <div class="logo">🤝</div>
-    <div>
-      <h1>जन-साथी</h1>
-      <div>आपकी हर जरूरत में मदद</div>
-    </div>
-  </div>
-  <p>सही सेवा खोजें, आवेदन का रास्ता पाएँ और दूसरों की मदद करें।</p>
-  <div class="search">
-    <input id="search" type="search"
-      placeholder="जैसे PAN, राशन कार्ड, लाइसेंस..."
-      aria-label="सरकारी सेवा खोजें">
-  </div>
-</header>
-
-<main>
-  <h2>आपको कौन-सा काम करवाना है?</h2>
-  <div class="quick">
-    <button class="tile" data-filter="लाइसेंस वाहन ड्राइविंग">
-      <span class="emoji">🚗</span><strong>लाइसेंस और वाहन</strong>
-      <small>ड्राइविंग लाइसेंस, वाहन</small>
-    </button>
-    <button class="tile" data-filter="PAN पैन पहचान">
-      <span class="emoji">🪪</span><strong>पहचान और PAN</strong>
-      <small>PAN और अन्य सेवाएँ</small>
-    </button>
-    <button class="tile" data-filter="राशन परिवार">
-      <span class="emoji">🌾</span><strong>राशन कार्ड</strong>
-      <small>राशन कार्ड संबंधी सेवा</small>
-    </button>
-    <button class="tile" data-filter="प्रमाणपत्र निवास आय जन्म">
-      <span class="emoji">📄</span><strong>प्रमाणपत्र</strong>
-      <small>आय, निवास, जन्म आदि</small>
-    </button>
-    <button class="tile" data-filter="पेंशन योजना सहायता">
-      <span class="emoji">🤲</span><strong>पेंशन और सहायता</strong>
-      <small>योजना और पात्रता</small>
-    </button>
-    <button class="tile" data-filter="सभी सेवाएँ UMANG">
-      <span class="emoji">📱</span><strong>अन्य सरकारी सेवाएँ</strong>
-      <small>एक जगह कई सेवाएँ</small>
-    </button>
-  </div>
-
-  <h2 id="listHeading">उपयोगी सरकारी सेवाएँ</h2>
-  <div id="services">
-    <article class="service" data-key="लाइसेंस ड्राइविंग वाहन सारथी">
-      <div class="service-top">
-        <span class="service-icon">🚗</span>
-        <div>
-          <h3>ड्राइविंग लाइसेंस</h3>
-          <p>नया लाइसेंस, नवीनीकरण और संबंधित सेवाओं के लिए सरकारी पोर्टल खोलें।</p>
-          <span class="tag">केंद्र सरकार</span>
-        </div>
-      </div>
-      <div class="actions">
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://sarathi.parivahan.gov.in/">सरकारी सेवा खोलें ↗</a>
-        <button class="btn secondary share"
-          data-title="ड्राइविंग लाइसेंस"
-          data-url="https://sarathi.parivahan.gov.in/">WhatsApp पर भेजें</button>
-      </div>
-    </article>
-
-    <article class="service" data-key="PAN पैन कार्ड पहचान आयकर">
-      <div class="service-top">
-        <span class="service-icon">🪪</span>
-        <div>
-          <h3>PAN कार्ड</h3>
-          <p>PAN संबंधी आधिकारिक जानकारी और आयकर विभाग की सेवाएँ देखें।</p>
-          <span class="tag">केंद्र सरकार</span>
-        </div>
-      </div>
-      <div class="actions">
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://www.incometax.gov.in/iec/foportal/">आयकर वेबसाइट खोलें ↗</a>
-        <button class="btn secondary share"
-          data-title="PAN कार्ड"
-          data-url="https://www.incometax.gov.in/iec/foportal/">WhatsApp पर भेजें</button>
-      </div>
-    </article>
-
-    <article class="service" data-key="राशन कार्ड पंजाब परिवार खाद्य">
-      <div class="service-top">
-        <span class="service-icon">🌾</span>
-        <div>
-          <h3>पंजाब राशन कार्ड</h3>
-          <p>नया राशन कार्ड और संबंधित सेवाओं के लिए पंजाब का पोर्टल देखें। प्रक्रिया की पुष्टि वहाँ करें।</p>
-          <span class="tag">पंजाब सरकार</span>
-        </div>
-      </div>
-      <div class="actions">
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://ercms.punjab.gov.in/PublicLogin/frmPublicLogin.aspx">पोर्टल खोलें ↗</a>
-        <button class="btn secondary share"
-          data-title="पंजाब राशन कार्ड"
-          data-url="https://ercms.punjab.gov.in/PublicLogin/frmPublicLogin.aspx">WhatsApp पर भेजें</button>
-      </div>
-    </article>
-
-    <article class="service" data-key="प्रमाणपत्र निवास आय जन्म पंजाब सेवा">
-      <div class="service-top">
-        <span class="service-icon">📄</span>
-        <div>
-          <h3>पंजाब ई-सेवाएँ</h3>
-          <p>उपलब्ध प्रमाणपत्रों और नागरिक सेवाओं की जानकारी खोजें। हर सेवा की पात्रता और प्रक्रिया अलग हो सकती है।</p>
-          <span class="tag">पंजाब सरकार</span>
-        </div>
-      </div>
-      <div class="actions">
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://eservices.punjab.gov.in/">ई-सेवाएँ खोलें ↗</a>
-        <button class="btn secondary share"
-          data-title="पंजाब ई-सेवाएँ"
-          data-url="https://eservices.punjab.gov.in/">WhatsApp पर भेजें</button>
-      </div>
-    </article>
-
-    <article class="service" data-key="पेंशन सरकारी योजना सहायता पात्रता">
-      <div class="service-top">
-        <span class="service-icon">🤲</span>
-        <div>
-          <h3>सरकारी योजनाएँ और सहायता</h3>
-          <p>उम्र, काम, राज्य और पात्रता के अनुसार योजनाएँ खोजने के लिए सरकारी पोर्टल खोलें।</p>
-          <span class="tag">केंद्र और राज्य</span>
-        </div>
-      </div>
-      <div class="actions">
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://www.myscheme.gov.in/">योजनाएँ खोजें ↗</a>
-        <button class="btn secondary share"
-          data-title="सरकारी योजनाएँ"
-          data-url="https://www.myscheme.gov.in/">WhatsApp पर भेजें</button>
-      </div>
-    </article>
-
-    <article class="service" data-key="सभी सेवाएँ UMANG केंद्र राज्य बिल आवेदन">
-      <div class="service-top">
-        <span class="service-icon">📱</span>
-        <div>
-          <h3>UMANG — कई सरकारी सेवाएँ</h3>
-          <p>केंद्र और राज्य की उपलब्ध डिजिटल सेवाएँ, दस्तावेज़ और आवेदन संबंधी विकल्प खोजें।</p>
-          <span class="tag">आधिकारिक डिजिटल प्लेटफॉर्म</span>
-        </div>
-      </div>
-      <div class="actions">
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://web.umang.gov.in/">UMANG खोलें ↗</a>
-        <button class="btn secondary share"
-          data-title="UMANG सरकारी सेवाएँ"
-          data-url="https://web.umang.gov.in/">WhatsApp पर भेजें</button>
-      </div>
-    </article>
-  </div>
-
-  <div id="empty">इस नाम से सेवा नहीं मिली। दूसरा शब्द लिखकर खोजें।</div>
-
-  <div class="note">
-    <strong>जरूरी सावधानी:</strong> जन-साथी एक स्वतंत्र सहायता वेबसाइट है, सरकारी वेबसाइट नहीं।
-    आवेदन की पात्रता, शुल्क और अंतिम प्रक्रिया संबंधित सरकारी पोर्टल पर जाँचें।
-    किसी अनजान व्यक्ति को OTP, पासवर्ड या बैंक PIN न दें।
-  </div>
-  <p style="text-align:center;font-size:14px">
-    <a href="https://www.india.gov.in/" target="_blank" rel="noopener">
-      भारत सरकार का राष्ट्रीय पोर्टल
-    </a>
-  </p>
-</main>
-
-<footer>जन-साथी · शुरुआती परीक्षण संस्करण</footer>
-
-<script>
-const search = document.getElementById("search");
-const cards = [...document.querySelectorAll(".service")];
-const empty = document.getElementById("empty");
-const heading = document.getElementById("listHeading");
-
-function filterServices(value) {
-  const query = value.trim().toLocaleLowerCase("hi");
-  let shown = 0;
-  cards.forEach(card => {
-    const text = (card.innerText + " " + card.dataset.key).toLocaleLowerCase("hi");
-    const match = !query || text.includes(query);
-    card.style.display = match ? "" : "none";
-    if (match) shown++;
-  });
-  empty.style.display = shown ? "none" : "block";
-  heading.textContent = query ? "खोज के परिणाम" : "उपयोगी सरकारी सेवाएँ";
-}
-
-search.addEventListener("input", () => filterServices(search.value));
-
-document.querySelectorAll(".tile").forEach(tile => {
-  tile.addEventListener("click", () => {
-    search.value = tile.dataset.filter.split(" ")[0];
-    filterServices(search.value);
-    document.getElementById("services").scrollIntoView({behavior:"smooth"});
-  });
-});
-
-document.querySelectorAll(".share").forEach(button => {
-  button.addEventListener("click", () => {
-    const title = button.dataset.title;
-    const url = button.dataset.url;
-    const message = "जन-साथी से जानकारी:\n" + title +
-      "\nआधिकारिक वेबसाइट: " + url +
-      "\nआवेदन की पात्रता और प्रक्रिया वेबसाइट पर जाँचें।";
-    const whatsapp = "https://wa.me/?text=" + encodeURIComponent(message);
-    window.open(whatsapp, "_blank", "noopener");
-  });
-});
-</script>
-</body>
-</html>
+:root{--b:#0b5cab;--p:#eaf3ff;--ink:#152238;--m:#5e6b7d;--line:#dfe7f1;--bg:#f4f7fb}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}header{background:linear-gradient(135deg,#0756a4,#1682c9);color:white;padding:16px 14px}.head{max-width:980px;margin:auto;display:flex;align-items:center;gap:10px}.logo{width:44px;height:44px;flex:0 0 44px;border-radius:13px;background:white;color:var(--b);display:grid;place-items:center;font-size:25px;font-weight:800}h1{font-size:23px;line-height:1.2;margin:0}.subtitle{font-size:12px;margin-top:4px}.wrap{max-width:980px;margin:auto;padding:12px}.searchbox{display:flex;gap:8px;margin-bottom:10px}input{min-width:0;flex:1;border:1px solid #cbd7e5;border-radius:12px;padding:12px;font-size:15px;background:white}.smallbtn{border:0;border-radius:11px;background:var(--b);color:white;padding:0 14px;font-weight:700}.quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:10px 0 14px}.quick a{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:7px 4px;background:white;border:1px solid var(--line);border-radius:11px;color:var(--ink);text-decoration:none;font-size:12px;font-weight:700}.quick span{font-size:19px}.section-title{font-size:17px;margin:16px 2px 9px;display:flex;justify-content:space-between;gap:8px}.section-title small{font-size:11px;font-weight:500;color:var(--m)}.chips{display:flex;gap:7px;overflow-x:auto;padding:1px 0 8px;margin-bottom:4px}.chip{white-space:nowrap;border:1px solid #cbd7e5;border-radius:99px;background:white;color:#334155;padding:7px 11px;font-size:12px}.chip.active{background:var(--b);color:white;border-color:var(--b)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.service{background:white;border:1px solid var(--line);border-radius:13px;padding:11px;min-width:0;box-shadow:0 1px 2px #10243a08}.icon{font-size:22px;margin-bottom:4px}.service h3{font-size:14px;line-height:1.35;margin:0 0 5px}.service p{font-size:11.5px;color:var(--m);margin:0 0 10px}.service a{display:block;text-align:center;background:var(--p);color:#064b91;border-radius:8px;padding:8px 6px;text-decoration:none;font-weight:750;font-size:12px}.notice,.panel{margin-top:13px;padding:11px 12px;border-radius:11px;font-size:12px}.notice{background:#fff8e7;border:1px solid #f4d99a;color:#694c0b}.panel{background:white;border:1px solid var(--line)}.panel h2{font-size:15px;margin:0 0 7px}.panel p{font-size:12px;color:var(--m);margin:4px 0}.panel a{color:#0756a4;overflow-wrap:anywhere}footer{text-align:center;color:var(--m);font-size:11px;padding:20px 10px 28px}.hidden{display:none!important}@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.quick{grid-template-columns:repeat(4,minmax(0,1fr))}.wrap{padding:18px}}@media(max-width:360px){.quick{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.service{display:grid;grid-template-columns:34px 1fr;column-gap:7px}.service .icon{grid-row:1/3}.service p{margin-bottom:8px}.service a{grid-column:1/-1}}
+</style></head><body>
+<header><div class="head"><div class="logo">ज</div><div><h1>जन-साथी</h1><div class="subtitle">सरकारी काम की आसान राह • पंजाब</div></div></div></header>
+<main class="wrap"><div class="searchbox"><input id="search" type="search" placeholder="अपना काम खोजें… जैसे पेंशन, जाति प्रमाणपत्र" aria-label="सेवाएँ खोजें"><button class="smallbtn" id="clear" type="button">साफ़</button></div>
+<div class="quick"><a href="https://punjab.gov.in/forms/" target="_blank" rel="noopener"><span>📄</span>सरकारी फॉर्म</a><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener"><span>🧾</span>ई-सर्विसेज</a><a href="https://digi.punjab.gov.in/" target="_blank" rel="noopener"><span>🏛️</span>DiGi Punjab</a><a href="https://connect.punjab.gov.in/" target="_blank" rel="noopener"><span>📨</span>शिकायत</a></div>
+<div class="section-title">आपको कौन-सा काम करना है? <small id="count"></small></div><div class="chips" id="filters"><button class="chip active" data-filter="all">सभी सेवाएँ</button><button class="chip" data-filter="certificate">प्रमाणपत्र</button><button class="chip" data-filter="pension">पेंशन/सहायता</button><button class="chip" data-filter="ration">राशन</button><button class="chip" data-filter="transport">ड्राइविंग/वाहन</button><button class="chip" data-filter="study">पढ़ाई</button><button class="chip" data-filter="farmer">किसान</button><button class="chip" data-filter="job">रोज़गार</button><button class="chip" data-filter="identity">पहचान/दस्तावेज़</button><button class="chip" data-filter="other">अन्य काम</button></div>
+<div class="grid" id="services">
+<article class="service" data-cat="other" data-key="सभी सरकारी फॉर्म आवेदन फॉर्म डाउनलोड विभाग पंजाब"><div class="icon">📄</div><h3>पंजाब के सरकारी फॉर्म</h3><p>विभागवार आवेदन फॉर्म खोजें और डाउनलोड करें।</p><a href="https://punjab.gov.in/forms/" target="_blank" rel="noopener">फॉर्म देखें ↗</a></article>
+<article class="service" data-cat="other" data-key="ई सर्विसेज ऑनलाइन आवेदन प्रमाणपत्र सेवा ट्रैक"><div class="icon">🧾</div><h3>पंजाब ई-सर्विसेज</h3><p>ऑनलाइन सेवाएँ, आवेदन और स्थिति जाँच।</p><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener">सेवा खोलें ↗</a></article>
+<article class="service" data-cat="other" data-key="digi punjab नागरिक सेवा डिजिटल सरकारी"><div class="icon">🏛️</div><h3>DiGi Punjab</h3><p>पंजाब की एकीकृत नागरिक सेवाएँ।</p><a href="https://digi.punjab.gov.in/" target="_blank" rel="noopener">पोर्टल खोलें ↗</a></article>
+<article class="service" data-cat="certificate" data-key="आय प्रमाणपत्र जाति अनुसूचित जाति पिछड़ा वर्ग निवास ग्रामीण प्रमाणपत्र"><div class="icon">📃</div><h3>आय, जाति और निवास प्रमाणपत्र</h3><p>संबंधित प्रमाणपत्र के लिए ऑनलाइन सेवा देखें।</p><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener">आवेदन देखें ↗</a></article>
+<article class="service" data-cat="certificate" data-key="जन्म मृत्यु विवाह प्रमाणपत्र रजिस्ट्रेशन सुधार"><div class="icon">👶</div><h3>जन्म, मृत्यु और विवाह प्रमाणपत्र</h3><p>पंजीकरण, प्रमाणपत्र और सुधार संबंधी सेवाएँ।</p><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener">सेवा देखें ↗</a></article>
+<article class="service" data-cat="pension" data-key="बुढ़ापा वृद्धावस्था पेंशन विधवा दिव्यांग विकलांग आश्रित पेंशन सहायता"><div class="icon">🤝</div><h3>पेंशन और सामाजिक सहायता</h3><p>वृद्धावस्था, विधवा और दिव्यांग पेंशन की जानकारी।</p><a href="https://sswcd.punjab.gov.in/" target="_blank" rel="noopener">विभाग खोलें ↗</a></article>
+<article class="service" data-cat="ration" data-key="राशन कार्ड नया कार्ड नाम जोड़ना सुधार खाद्य विभाग"><div class="icon">🌾</div><h3>राशन कार्ड</h3><p>नया कार्ड और राशन कार्ड सेवाएँ।</p><a href="https://ercms.punjab.gov.in/PublicLogin/frmPublicLogin.aspx" target="_blank" rel="noopener">आधिकारिक पोर्टल ↗</a></article>
+<article class="service" data-cat="transport" data-key="ड्राइविंग लाइसेंस लर्नर लाइसेंस नवीनीकरण पता बदलाव"><div class="icon">🚗</div><h3>ड्राइविंग लाइसेंस</h3><p>लर्नर लाइसेंस, नया लाइसेंस और नवीनीकरण।</p><a href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noopener">आवेदन करें ↗</a></article>
+<article class="service" data-cat="transport" data-key="वाहन आरसी रजिस्ट्रेशन सर्टिफिकेट वाहन परिवहन"><div class="icon">🚙</div><h3>वाहन RC और परिवहन</h3><p>वाहन पंजीकरण और संबंधित सेवाएँ।</p><a href="https://parivahan.gov.in/" target="_blank" rel="noopener">परिवहन पोर्टल ↗</a></article>
+<article class="service" data-cat="identity" data-key="पैन कार्ड नया पैन सुधार आयकर"><div class="icon">🪪</div><h3>PAN कार्ड</h3><p>पैन से जुड़ी सेवाएँ और आधिकारिक जानकारी।</p><a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener">आयकर पोर्टल ↗</a></article>
+<article class="service" data-cat="identity" data-key="आधार कार्ड अपडेट पता मोबाइल यूआईडीएआई"><div class="icon">🆔</div><h3>आधार कार्ड</h3><p>आधार की आधिकारिक सेवाएँ और अपडेट जानकारी।</p><a href="https://uidai.gov.in/" target="_blank" rel="noopener">UIDAI खोलें ↗</a></article>
+<article class="service" data-cat="identity" data-key="पासपोर्ट नया आवेदन नवीनीकरण"><div class="icon">🛂</div><h3>पासपोर्ट</h3><p>नया पासपोर्ट और नवीनीकरण।</p><a href="https://www.passportindia.gov.in/" target="_blank" rel="noopener">आवेदन करें ↗</a></article>
+<article class="service" data-cat="study" data-key="छात्रवृत्ति स्कॉलरशिप विद्यार्थी पढ़ाई शिक्षा"><div class="icon">🎓</div><h3>छात्रवृत्ति और पढ़ाई</h3><p>छात्रवृत्ति की उपलब्ध योजनाएँ खोजें।</p><a href="https://scholarships.gov.in/" target="_blank" rel="noopener">राष्ट्रीय पोर्टल ↗</a></article>
+<article class="service" data-cat="farmer" data-key="किसान कृषि खेती योजना किसान रजिस्ट्री"><div class="icon">🌱</div><h3>किसान और कृषि योजनाएँ</h3><p>केंद्र और पंजाब की योजनाएँ खोजें।</p><a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener">योजनाएँ खोजें ↗</a></article>
+<article class="service" data-cat="job" data-key="रोजगार नौकरी कौशल प्रशिक्षण पंजाब रोजगार"><div class="icon">🧰</div><h3>रोज़गार और कौशल</h3><p>नौकरी, प्रशिक्षण और रोज़गार सेवाएँ।</p><a href="https://www.pgrkam.com/" target="_blank" rel="noopener">पंजाब रोज़गार ↗</a></article>
+<article class="service" data-cat="other" data-key="सरकारी योजनाएँ पात्रता लाभ योजना केंद्र पंजाब"><div class="icon">🔎</div><h3>मेरे लिए कौन-सी योजना?</h3><p>उपलब्ध सरकारी योजनाएँ और पात्रता खोजें।</p><a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener">योजना खोजें ↗</a></article>
+<article class="service" data-cat="other" data-key="उमंग केंद्र सरकारी सेवाएँ मोबाइल ऐप"><div class="icon">📱</div><h3>UMANG सरकारी सेवाएँ</h3><p>केंद्र और राज्यों की डिजिटल सेवाएँ।</p><a href="https://web.umang.gov.in/" target="_blank" rel="noopener">UMANG खोलें ↗</a></article>
+<article class="service" data-cat="other" data-key="शिकायत शिकायत दर्ज जन शिकायत पंजाब कनेक्ट"><div class="icon">📨</div><h3>सरकारी शिकायत</h3><p>शिकायत या जनसमस्या के लिए पोर्टल।</p><a href="https://connect.punjab.gov.in/" target="_blank" rel="noopener">शिकायत दर्ज करें ↗</a></article>
+<article class="service" data-cat="other" data-key="पुलिस वेरिफिकेशन चरित्र प्रमाणपत्र एफआईआर सांझ"><div class="icon">👮</div><h3>पुलिस की नागरिक सेवाएँ</h3><p>पुलिस सत्यापन और उपलब्ध नागरिक सेवाएँ।</p><a href="https://connect.punjab.gov.in/" target="_blank" rel="noopener">आधिकारिक पोर्टल ↗</a></article>
+</div><div id="empty" class="panel hidden"><h2>यह सेवा नहीं मिली</h2><p>दूसरा शब्द लिखकर खोजें या “सरकारी फॉर्म” / “ई-सर्विसेज” खोलें।</p></div>
+<div class="notice"><strong>सुरक्षा:</strong> जन-साथी स्वतंत्र सहायता वेबसाइट है, सरकारी वेबसाइट नहीं। आवेदन हमेशा आधिकारिक पोर्टल पर करें। अपना OTP, पासवर्ड, बैंक PIN या पूरी आधार जानकारी किसी अनजान व्यक्ति को न दें। शुल्क और पात्रता आवेदन से पहले संबंधित विभाग में जाँचें।</div>
+<div class="panel"><h2>ऑनलाइन आवेदन न हो पाए तो?</h2><p>कई सेवाओं के लिए ऑनलाइन आवेदन के अलावा नज़दीकी सेवा केंद्र (Sewa Kendra) से भी मदद ली जा सकती है।</p><p><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener">आवेदन की जानकारी देखें ↗</a></p></div></main>
+<footer>जन-साथी • सरकारी सेवाओं तक आसान पहुँच<br>लिंक संबंधित विभागों के हैं; उपलब्धता और नियम बदल सकते हैं।</footer>
+<script>(function(){const search=document.getElementById('search'),clear=document.getElementById('clear'),cards=[...document.querySelectorAll('.service')],chips=[...document.querySelectorAll('.chip')],count=document.getElementById('count'),empty=document.getElementById('empty');let category='all';function filterCards(){const q=search.value.trim().toLocaleLowerCase('hi');let n=0;cards.forEach(card=>{const text=(card.innerText+' '+(card.dataset.key||'')).toLocaleLowerCase('hi'),show=(category==='all'||card.dataset.cat===category)&&(!q||text.includes(q));card.classList.toggle('hidden',!show);if(show)n++});count.textContent=n+' सेवाएँ';empty.classList.toggle('hidden',n!==0)}search.addEventListener('input',filterCards);clear.addEventListener('click',()=>{search.value='';category='all';chips.forEach(c=>c.classList.toggle('active',c.dataset.filter==='all'));filterCards();search.focus()});chips.forEach(chip=>chip.addEventListener('click',()=>{category=chip.dataset.filter;chips.forEach(c=>c.classList.toggle('active',c===chip));filterCards()}));filterCards()})();</script>
+</body></html>
