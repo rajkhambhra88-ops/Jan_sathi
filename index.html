@@ -1,285 +1,48 @@
-
 <!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123d70">
-<title>जन-साथी | नागरिक सहायता केंद्र</title>
+<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b5cab"><title>जन-साथी | सरकारी सेवाएँ</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#f3f6fb;color:#203149;font-family:Arial,"Noto Sans Devanagari",sans-serif}
-header{background:linear-gradient(135deg,#10345e,#1769a8);color:white;padding:19px 15px;border-radius:0 0 20px 20px}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{background:white;color:#164b7b;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:25px}
-h1{margin:0;font-size:24px}
-header p{font-size:12px;margin:5px 0 0;color:#e3efff}
-main{max-width:900px;margin:auto;padding:12px}
-.search{display:flex;align-items:center;gap:9px;background:white;border:1px solid #dce5ef;padding:12px;border-radius:12px;margin:12px 0}
-.search input{width:100%;border:0;outline:0;font-size:15px;background:transparent}
-h2{font-size:16px;margin:19px 2px 10px}
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.quick a{background:white;border:1px solid #e0e7f0;border-radius:11px;text-decoration:none;color:#243a54;text-align:center;padding:10px 3px;font-size:11px;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;min-height:72px}
-.quick span{font-size:22px}
-.filters{display:flex;gap:7px;overflow-x:auto;padding:3px 0 10px}
-.filters button{white-space:nowrap;border:1px solid #dce4ee;background:white;border-radius:20px;padding:8px 12px;font-size:12px;color:#30435b}
-.filters button.active{background:#174f87;color:white}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.card,.panel{background:white;border:1px solid #e0e7ef;border-radius:12px;padding:12px}
-.cardhead{display:flex;gap:9px;align-items:center}
-.symbol{width:39px;height:39px;border-radius:10px;background:#edf4fc;display:grid;place-items:center;font-size:21px;flex-shrink:0}
-.card h3{font-size:13px;margin:0 0 4px}
-.card p,.panel p{font-size:11px;line-height:1.6;color:#66768a;margin:8px 0}
-.tag{font-size:10px;color:#17639d}
-.actions{display:flex;gap:6px;margin-top:9px}
-.actions a,.actions button{flex:1;text-align:center;text-decoration:none;border:0;border-radius:8px;padding:9px 4px;font-size:11px;cursor:pointer}
-.primary{background:#175a96;color:white}
-.secondary{background:#e9f4ed;color:#176c42}
-.panel{margin-top:12px}
-.panel h3{font-size:14px;margin:0 0 8px}
-.panel a{color:#17619b}
-.panel .primary{color:white}
-.panel .secondary{color:#176c42}
-.panel input,.panel select,.panel textarea{width:100%;padding:10px;border:1px solid #dce4ef;border-radius:8px;margin:5px 0;font-size:13px;background:white}
-.panel textarea{min-height:75px}
-.notice{background:#fff7e6;border:1px solid #efdfb7;color:#6d5424;border-radius:11px;padding:12px;font-size:11px;line-height:1.7;margin-top:13px}
-.empty{grid-column:1/-1;background:white;padding:22px;text-align:center;border-radius:12px;color:#718096}
-.result{background:#eef5ff;padding:10px;border-radius:8px;font-size:12px;line-height:1.7;margin-top:8px;display:none}
-footer{text-align:center;padding:22px 8px;font-size:11px;color:#78879a}
-@media(max-width:390px){.quick{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-
-<header>
- <div class="brand">
-  <div class="logo">🤝</div>
-  <div>
-   <h1>जन-साथी</h1>
-   <p>पंजाब का अपना नागरिक सहायता केंद्र</p>
-  </div>
- </div>
-</header>
-
-<main>
-
- <div class="search">
-  🔎 <input id="search" type="search" placeholder="अपना सरकारी काम खोजें...">
- </div>
-
- <h2>लोकप्रिय सुविधाएँ</h2>
- <div class="quick">
-  <a href="https://eservices.punjab.gov.in/" target="_blank"><span>📄</span>प्रमाणपत्र</a>
-  <a href="https://ercms.punjab.gov.in/" target="_blank"><span>🍚</span>राशन कार्ड</a>
-  <a href="https://sarathi.parivahan.gov.in/" target="_blank"><span>🚗</span>ड्राइविंग लाइसेंस</a>
-  <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank"><span>🪪</span>पैन कार्ड</a>
-  <a href="https://www.myscheme.gov.in/" target="_blank"><span>🏛️</span>सरकारी योजनाएँ</a>
-  <a href="https://web.umang.gov.in/" target="_blank"><span>📱</span>UMANG</a>
-  <a href="https://uidai.gov.in/" target="_blank"><span>🆔</span>आधार</a>
-  <a href="https://www.ncs.gov.in/" target="_blank"><span>💼</span>रोजगार</a>
- </div>
-
- <h2>सभी सेवाएँ और विभाग</h2>
- <div class="filters" id="filters">
-  <button class="active" data-cat="all">सभी</button>
-  <button data-cat="documents">दस्तावेज़</button>
-  <button data-cat="pension">पेंशन</button>
-  <button data-cat="food">राशन</button>
-  <button data-cat="farmer">किसान</button>
-  <button data-cat="education">शिक्षा</button>
-  <button data-cat="women">महिला</button>
-  <button data-cat="jobs">रोजगार</button>
-  <button data-cat="transport">परिवहन</button>
-  <button data-cat="central">केंद्र सरकार</button>
- </div>
- <div class="cards" id="cards"></div>
-
- <section class="panel">
-  <h3>📥 सरकारी फॉर्म केंद्र</h3>
-  <p>पंजाब सरकार के नागरिक सेवा पोर्टल पर उपलब्ध आवेदन और फॉर्म देखें।</p>
-  <div class="actions">
-   <a class="primary" href="https://eservices.punjab.gov.in/" target="_blank">पंजाब फॉर्म और सेवाएँ</a>
-   <a class="secondary" href="https://punjab.gov.in/" target="_blank">सरकारी वेबसाइट</a>
-  </div>
-  <p>केंद्र सरकार के फॉर्म और सेवाएँ:</p>
-  <div class="actions">
-   <a class="primary" href="https://web.umang.gov.in/" target="_blank">UMANG</a>
-   <a class="secondary" href="https://www.myscheme.gov.in/" target="_blank">योजना पोर्टल</a>
-  </div>
- </section>
-
- <section class="panel">
-  <h3>🧾 आवेदन के लिए दस्तावेज़ तैयार करें</h3>
-  <p>सामान्य तौर पर सरकारी आवेदन में पहचान, पता, फोटो और संबंधित प्रमाणपत्र माँगे जा सकते हैं। सही सूची योजना के अनुसार बदलती है।</p>
-  <label><input type="checkbox"> पहचान प्रमाण तैयार है</label><br>
-  <label><input type="checkbox"> पता प्रमाण तैयार है</label><br>
-  <label><input type="checkbox"> पासपोर्ट आकार फोटो तैयार है</label><br>
-  <label><input type="checkbox"> संबंधित प्रमाणपत्र तैयार है</label><br>
-  <label><input type="checkbox"> मोबाइल नंबर उपलब्ध है</label>
-  <p>यह सामान्य तैयारी सूची है, हर आवेदन की अनिवार्य सूची नहीं।</p>
- </section>
-
- <section class="panel">
-  <h3>🎯 सरकारी योजना खोजने में सहायता</h3>
-  <p>अपनी जरूरत चुनें और सरकारी योजना खोजने के लिए आधिकारिक पोर्टल खोलें।</p>
-  <select id="need">
-   <option value="">अपनी जरूरत चुनें</option>
-   <option>बुजुर्ग पेंशन</option>
-   <option>महिला सहायता</option>
-   <option>किसान सहायता</option>
-   <option>विद्यार्थी छात्रवृत्ति</option>
-   <option>रोजगार</option>
-   <option>स्वास्थ्य सहायता</option>
-   <option>व्यापार और स्वरोजगार</option>
-   <option>दिव्यांग सहायता</option>
-  </select>
-  <button class="primary" style="width:100%;padding:10px;border:0;border-radius:8px" onclick="findScheme()">योजना खोजें</button>
-  <div class="result" id="schemeResult"></div>
- </section>
-
- <section class="panel">
-  <h3>📝 आवेदन भरने में सहायता</h3>
-  <p>आवेदन करने से पहले संबंधित योजना की आधिकारिक पात्रता, दस्तावेज़ और निर्देश पढ़ें।</p>
-  <div class="actions">
-   <a class="primary" href="https://eservices.punjab.gov.in/" target="_blank">पंजाब आवेदन सहायता</a>
-   <a class="secondary" href="https://www.myscheme.gov.in/" target="_blank">योजना की पात्रता</a>
-  </div>
- </section>
-
- <section class="panel">
-  <h3>🔍 आवेदन की स्थिति जाँचें</h3>
-  <p>अपने आवेदन की स्थिति संबंधित विभाग के आधिकारिक पोर्टल पर देखें।</p>
-  <div class="actions">
-   <a class="primary" href="https://eservices.punjab.gov.in/" target="_blank">पंजाब आवेदन स्थिति</a>
-   <a class="secondary" href="https://web.umang.gov.in/" target="_blank">UMANG</a>
-  </div>
- </section>
-
- <section class="panel">
-  <h3>📢 शिकायत और नागरिक सहायता</h3>
-  <p>सरकारी सेवा से जुड़ी शिकायत के लिए आधिकारिक शिकायत पोर्टल का उपयोग करें।</p>
-  <div class="actions">
-   <a class="primary" href="https://connect.punjab.gov.in/" target="_blank">पंजाब संपर्क</a>
-   <a class="secondary" href="https://pgportal.gov.in/" target="_blank">केंद्र शिकायत पोर्टल</a>
-  </div>
- </section>
-
- <section class="panel">
-  <h3>🏢 सरकारी कार्यालय और विभाग</h3>
-  <p>पंजाब सरकार के विभागों और कार्यालयों की जानकारी के लिए सरकारी वेबसाइट देखें।</p>
-  <div class="actions">
-   <a class="primary" href="https://punjab.gov.in/" target="_blank">विभागों की जानकारी</a>
-   <a class="secondary" href="https://connect.punjab.gov.in/" target="_blank">संपर्क पोर्टल</a>
-  </div>
- </section>
-
- <section class="panel">
-  <h3>📲 जन-साथी साझा करें</h3>
-  <p>इस प्लेटफॉर्म को परिवार और मित्रों तक पहुँचाएँ।</p>
-  <button class="primary" style="width:100%;padding:10px;border:0;border-radius:8px" onclick="shareApp()">WhatsApp पर साझा करें</button>
- </section>
-
- <div class="notice">
-  <b>महत्वपूर्ण सुरक्षा सूचना:</b> जन-साथी एक स्वतंत्र नागरिक सहायता प्लेटफॉर्म है, सरकारी वेबसाइट नहीं। OTP, पासवर्ड, बैंक PIN या आधार की गोपनीय जानकारी यहाँ न डालें। आवेदन और भुगतान केवल आधिकारिक सरकारी पोर्टल पर करें। योजनाओं की पात्रता, शुल्क और नियम विभाग से सत्यापित करें।
- </div>
-
-</main>
-
-<footer>
- जन-साथी — आम नागरिक की सुविधा के लिए एक पहल<br>
- जानकारी संबंधित सरकारी विभाग से सत्यापित करें।
-</footer>
-
+:root{--b:#0b5cab;--p:#eaf3ff;--ink:#152238;--m:#5e6b7d;--line:#dfe7f1;--bg:#f4f7fb}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}header{background:linear-gradient(135deg,#0756a4,#1682c9);color:white;padding:16px 14px}.head{max-width:980px;margin:auto;display:flex;align-items:center;gap:10px}.langbox{margin-left:auto;display:flex;align-items:center;gap:5px}.langbox label{font-size:12px;color:white}.langbox select{max-width:112px;border:1px solid #ffffff88;border-radius:9px;padding:8px 6px;background:white;color:#123;font-weight:700}.logo{width:44px;height:44px;flex:0 0 44px;border-radius:13px;background:white;color:var(--b);display:grid;place-items:center;font-size:25px;font-weight:800}h1{font-size:23px;line-height:1.2;margin:0}.subtitle{font-size:12px;margin-top:4px}.wrap{max-width:980px;margin:auto;padding:12px}.searchbox{display:flex;gap:8px;margin-bottom:10px}input{min-width:0;flex:1;border:1px solid #cbd7e5;border-radius:12px;padding:12px;font-size:15px;background:white}.smallbtn{border:0;border-radius:11px;background:var(--b);color:white;padding:0 14px;font-weight:700}.quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:10px 0 14px}.quick a{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:7px 4px;background:white;border:1px solid var(--line);border-radius:11px;color:var(--ink);text-decoration:none;font-size:12px;font-weight:700}.quick span{font-size:19px}.section-title{font-size:17px;margin:16px 2px 9px;display:flex;justify-content:space-between;gap:8px}.section-title small{font-size:11px;font-weight:500;color:var(--m)}.chips{display:flex;gap:7px;overflow-x:auto;padding:1px 0 8px;margin-bottom:4px}.chip{white-space:nowrap;border:1px solid #cbd7e5;border-radius:99px;background:white;color:#334155;padding:7px 11px;font-size:12px}.chip.active{background:var(--b);color:white;border-color:var(--b)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.service{background:white;border:1px solid var(--line);border-radius:13px;padding:11px;min-width:0;box-shadow:0 1px 2px #10243a08}.icon{font-size:22px;margin-bottom:4px}.service h3{font-size:14px;line-height:1.35;margin:0 0 5px}.service p{font-size:11.5px;color:var(--m);margin:0 0 10px}.service a{display:block;text-align:center;background:var(--p);color:#064b91;border-radius:8px;padding:8px 6px;text-decoration:none;font-weight:750;font-size:12px}.notice,.panel{margin-top:13px;padding:11px 12px;border-radius:11px;font-size:12px}.notice{background:#fff8e7;border:1px solid #f4d99a;color:#694c0b}.panel{background:white;border:1px solid var(--line)}.panel h2{font-size:15px;margin:0 0 7px}.panel p{font-size:12px;color:var(--m);margin:4px 0}.panel a{color:#0756a4;overflow-wrap:anywhere}footer{text-align:center;color:var(--m);font-size:11px;padding:20px 10px 28px}.hidden{display:none!important}@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.quick{grid-template-columns:repeat(4,minmax(0,1fr))}.wrap{padding:18px}}@media(max-width:360px){.quick{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.service{display:grid;grid-template-columns:34px 1fr;column-gap:7px}.service .icon{grid-row:1/3}.service p{margin-bottom:8px}.service a{grid-column:1/-1}}
+</style></head><body>
+<header><div class="head"><div class="logo">ज</div><div><h1 id="appTitle">जन-साथी</h1><div class="subtitle" id="appSubtitle">सरकारी काम की आसान राह • पंजाब</div></div><div class="langbox"><label for="language">भाषा</label><select id="language" aria-label="भाषा चुनें"><option value="hi">हिन्दी</option><option value="pa">ਪੰਜਾਬੀ</option><option value="en">English</option></select></div></div></header>
+<main class="wrap"><div class="searchbox"><input id="search" type="search" placeholder="अपना काम खोजें… जैसे पेंशन, जाति प्रमाणपत्र" aria-label="सेवाएँ खोजें"><button class="smallbtn" id="clear" type="button">साफ़</button></div>
+<div class="quick"><a href="https://punjab.gov.in/forms/" target="_blank" rel="noopener"><span>📄</span>सरकारी फॉर्म</a><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener"><span>🧾</span>ई-सर्विसेज</a><a href="https://digi.punjab.gov.in/" target="_blank" rel="noopener"><span>🏛️</span>DiGi Punjab</a><a href="https://connect.punjab.gov.in/" target="_blank" rel="noopener"><span>📨</span>शिकायत</a></div>
+<div class="section-title"><span id="sectionTitle">आपको कौन-सा काम करना है?</span> <small id="count"></small></div><div class="chips" id="filters"><button class="chip active" data-filter="all">सभी सेवाएँ</button><button class="chip" data-filter="certificate">प्रमाणपत्र</button><button class="chip" data-filter="pension">पेंशन/सहायता</button><button class="chip" data-filter="ration">राशन</button><button class="chip" data-filter="transport">ड्राइविंग/वाहन</button><button class="chip" data-filter="study">पढ़ाई</button><button class="chip" data-filter="farmer">किसान</button><button class="chip" data-filter="job">रोज़गार</button><button class="chip" data-filter="identity">पहचान/दस्तावेज़</button><button class="chip" data-filter="other">अन्य काम</button></div>
+<div class="grid" id="services">
+<article class="service" data-cat="other" data-key="सभी सरकारी फॉर्म आवेदन फॉर्म डाउनलोड विभाग पंजाब"><div class="icon">📄</div><h3>पंजाब के सरकारी फॉर्म</h3><p>विभागवार आवेदन फॉर्म खोजें और डाउनलोड करें।</p><a href="https://punjab.gov.in/forms/" target="_blank" rel="noopener">फॉर्म देखें ↗</a></article>
+<article class="service" data-cat="other" data-key="ई सर्विसेज ऑनलाइन आवेदन प्रमाणपत्र सेवा ट्रैक"><div class="icon">🧾</div><h3>पंजाब ई-सर्विसेज</h3><p>ऑनलाइन सेवाएँ, आवेदन और स्थिति जाँच।</p><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener">सेवा खोलें ↗</a></article>
+<article class="service" data-cat="other" data-key="digi punjab नागरिक सेवा डिजिटल सरकारी"><div class="icon">🏛️</div><h3>DiGi Punjab</h3><p>पंजाब की एकीकृत नागरिक सेवाएँ।</p><a href="https://digi.punjab.gov.in/" target="_blank" rel="noopener">पोर्टल खोलें ↗</a></article>
+<article class="service" data-cat="certificate" data-key="आय प्रमाणपत्र जाति अनुसूचित जाति पिछड़ा वर्ग निवास ग्रामीण प्रमाणपत्र"><div class="icon">📃</div><h3>आय, जाति और निवास प्रमाणपत्र</h3><p>संबंधित प्रमाणपत्र के लिए ऑनलाइन सेवा देखें।</p><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener">आवेदन देखें ↗</a></article>
+<article class="service" data-cat="certificate" data-key="जन्म मृत्यु विवाह प्रमाणपत्र रजिस्ट्रेशन सुधार"><div class="icon">👶</div><h3>जन्म, मृत्यु और विवाह प्रमाणपत्र</h3><p>पंजीकरण, प्रमाणपत्र और सुधार संबंधी सेवाएँ।</p><a href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener">सेवा देखें ↗</a></article>
+<article class="service" data-cat="pension" data-key="बुढ़ापा वृद्धावस्था पेंशन विधवा दिव्यांग विकलांग आश्रित पेंशन सहायता"><div class="icon">🤝</div><h3>पेंशन और सामाजिक सहायता</h3><p>वृद्धावस्था, विधवा और दिव्यांग पेंशन की जानकारी।</p><a href="https://sswcd.punjab.gov.in/" target="_blank" rel="noopener">विभाग खोलें ↗</a></article>
+<article class="service" data-cat="ration" data-key="राशन कार्ड नया कार्ड नाम जोड़ना सुधार खाद्य विभाग"><div class="icon">🌾</div><h3>राशन कार्ड</h3><p>नया कार्ड और राशन कार्ड सेवाएँ।</p><a href="https://ercms.punjab.gov.in/PublicLogin/frmPublicLogin.aspx" target="_blank" rel="noopener">आधिकारिक पोर्टल ↗</a></article>
+<article class="service" data-cat="transport" data-key="ड्राइविंग लाइसेंस लर्नर लाइसेंस नवीनीकरण पता बदलाव"><div class="icon">🚗</div><h3>ड्राइविंग लाइसेंस</h3><p>लर्नर लाइसेंस, नया लाइसेंस और नवीनीकरण।</p><a href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noopener">आवेदन करें ↗</a></article>
+<article class="service" data-cat="transport" data-key="वाहन आरसी रजिस्ट्रेशन सर्टिफिकेट वाहन परिवहन"><div class="icon">🚙</div><h3>वाहन RC और परिवहन</h3><p>वाहन पंजीकरण और संबंधित सेवाएँ।</p><a href="https://parivahan.gov.in/" target="_blank" rel="noopener">परिवहन पोर्टल ↗</a></article>
+<article class="service" data-cat="identity" data-key="पैन कार्ड नया पैन सुधार आयकर"><div class="icon">🪪</div><h3>PAN कार्ड</h3><p>पैन से जुड़ी सेवाएँ और आधिकारिक जानकारी।</p><a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener">आयकर पोर्टल ↗</a></article>
+<article class="service" data-cat="identity" data-key="आधार कार्ड अपडेट पता मोबाइल यूआईडीएआई"><div class="icon">🆔</div><h3>आधार कार्ड</h3><p>आधार की आधिकारिक सेवाएँ और अपडेट जानकारी।</p><a href="https://uidai.gov.in/" target="_blank" rel="noopener">UIDAI खोलें ↗</a></article>
+<article class="service" data-cat="identity" data-key="पासपोर्ट नया आवेदन नवीनीकरण"><div class="icon">🛂</div><h3>पासपोर्ट</h3><p>नया पासपोर्ट और नवीनीकरण।</p><a href="https://www.passportindia.gov.in/" target="_blank" rel="noopener">आवेदन करें ↗</a></article>
+<article class="service" data-cat="study" data-key="छात्रवृत्ति स्कॉलरशिप विद्यार्थी पढ़ाई शिक्षा"><div class="icon">🎓</div><h3>छात्रवृत्ति और पढ़ाई</h3><p>छात्रवृत्ति की उपलब्ध योजनाएँ खोजें।</p><a href="https://scholarships.gov.in/" target="_blank" rel="noopener">राष्ट्रीय पोर्टल ↗</a></article>
+<article class="service" data-cat="farmer" data-key="किसान कृषि खेती योजना किसान रजिस्ट्री"><div class="icon">🌱</div><h3>किसान और कृषि योजनाएँ</h3><p>केंद्र और पंजाब की योजनाएँ खोजें।</p><a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener">योजनाएँ खोजें ↗</a></article>
+<article class="service" data-cat="job" data-key="रोजगार नौकरी कौशल प्रशिक्षण पंजाब रोजगार"><div class="icon">🧰</div><h3>रोज़गार और कौशल</h3><p>नौकरी, प्रशिक्षण और रोज़गार सेवाएँ।</p><a href="https://www.pgrkam.com/" target="_blank" rel="noopener">पंजाब रोज़गार ↗</a></article>
+<article class="service" data-cat="other" data-key="सरकारी योजनाएँ पात्रता लाभ योजना केंद्र पंजाब"><div class="icon">🔎</div><h3>मेरे लिए कौन-सी योजना?</h3><p>उपलब्ध सरकारी योजनाएँ और पात्रता खोजें।</p><a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener">योजना खोजें ↗</a></article>
+<article class="service" data-cat="other" data-key="उमंग केंद्र सरकारी सेवाएँ मोबाइल ऐप"><div class="icon">📱</div><h3>UMANG सरकारी सेवाएँ</h3><p>केंद्र और राज्यों की डिजिटल सेवाएँ।</p><a href="https://web.umang.gov.in/" target="_blank" rel="noopener">UMANG खोलें ↗</a></article>
+<article class="service" data-cat="other" data-key="शिकायत शिकायत दर्ज जन शिकायत पंजाब कनेक्ट"><div class="icon">📨</div><h3>सरकारी शिकायत</h3><p>शिकायत या जनसमस्या के लिए पोर्टल।</p><a href="https://connect.punjab.gov.in/" target="_blank" rel="noopener">शिकायत दर्ज करें ↗</a></article>
+<article class="service" data-cat="other" data-key="पुलिस वेरिफिकेशन चरित्र प्रमाणपत्र एफआईआर सांझ"><div class="icon">👮</div><h3>पुलिस की नागरिक सेवाएँ</h3><p>पुलिस सत्यापन और उपलब्ध नागरिक सेवाएँ।</p><a href="https://connect.punjab.gov.in/" target="_blank" rel="noopener">आधिकारिक पोर्टल ↗</a></article>
+</div><div id="empty" class="panel hidden"><h2>यह सेवा नहीं मिली</h2><p>दूसरा शब्द लिखकर खोजें या “सरकारी फॉर्म” / “ई-सर्विसेज” खोलें।</p></div>
+<div class="notice"><strong id="securityTitle">सुरक्षा:</strong> <span id="securityText">जन-साथी स्वतंत्र सहायता वेबसाइट है, सरकारी वेबसाइट नहीं। आवेदन हमेशा आधिकारिक पोर्टल पर करें। अपना OTP, पासवर्ड, बैंक PIN या पूरी आधार जानकारी किसी अनजान व्यक्ति को न दें। शुल्क और पात्रता आवेदन से पहले संबंधित विभाग में जाँचें।</span></div>
+<div class="panel"><h2 id="helpTitle">ऑनलाइन आवेदन न हो पाए तो?</h2><p id="helpText">कई सेवाओं के लिए ऑनलाइन आवेदन के अलावा नज़दीकी सेवा केंद्र (Sewa Kendra) से भी मदद ली जा सकती है।</p><p><a id="helpLink" href="https://eservices.punjab.gov.in/" target="_blank" rel="noopener">आवेदन की जानकारी देखें ↗</a></p></div></main>
+<footer><span id="footerText">जन-साथी • सरकारी सेवाओं तक आसान पहुँच</span><br><span id="footerNote">लिंक संबंधित विभागों के हैं; उपलब्धता और नियम बदल सकते हैं।</span></footer>
 <script>
-const services=[
-["जन्म प्रमाणपत्र","👶","documents","जन्म प्रमाणपत्र और नागरिक सेवाओं की जानकारी।","https://eservices.punjab.gov.in/","जन्म बर्थ"],
-["मृत्यु प्रमाणपत्र","📃","documents","मृत्यु प्रमाणपत्र संबंधी नागरिक सेवाएँ।","https://eservices.punjab.gov.in/","मृत्यु डेथ"],
-["जाति प्रमाणपत्र","📜","documents","जाति प्रमाणपत्र आवेदन की जानकारी।","https://eservices.punjab.gov.in/","जाति एससी ओबीसी"],
-["आय प्रमाणपत्र","💰","documents","आय प्रमाणपत्र संबंधी सेवाएँ।","https://eservices.punjab.gov.in/","आय इनकम"],
-["निवास प्रमाणपत्र","🏠","documents","निवास प्रमाणपत्र और संबंधित सेवाएँ।","https://eservices.punjab.gov.in/","डोमिसाइल रिहायश"],
-["बुढ़ापा पेंशन","👵","pension","वृद्ध नागरिकों की पेंशन जानकारी।","https://eservices.punjab.gov.in/","वृद्ध बुजुर्ग"],
-["विधवा पेंशन","👩","pension","विधवा पेंशन की जानकारी और आवेदन का रास्ता।","https://eservices.punjab.gov.in/","विधवा महिला"],
-["दिव्यांग पेंशन","♿","pension","दिव्यांग नागरिकों की सहायता की जानकारी।","https://eservices.punjab.gov.in/","विकलांग अपंग"],
-["राशन कार्ड","🍚","food","पंजाब राशन कार्ड सेवाएँ।","https://ercms.punjab.gov.in/","खाद्य आटा दाल"],
-["किसान योजनाएँ","🌾","farmer","किसानों के लिए सरकारी योजनाएँ।","https://www.myscheme.gov.in/","खेती कृषि किसान"],
-["कृषि विभाग","🚜","farmer","पंजाब कृषि विभाग की जानकारी।","https://agri.punjab.gov.in/","फसल बीज खेती"],
-["छात्रवृत्ति","🎓","education","विद्यार्थियों के लिए छात्रवृत्ति।","https://scholarships.gov.in/","स्कॉलरशिप पढ़ाई"],
-["शिक्षा सहायता","📚","education","विद्यार्थियों के लिए सरकारी सहायता।","https://www.myscheme.gov.in/","स्कूल कॉलेज"],
-["महिला सहायता","👩‍👧","women","महिलाओं के लिए सरकारी योजनाएँ।","https://www.myscheme.gov.in/","महिला बेटी"],
-["बच्चों की योजनाएँ","🧒","women","बच्चों और परिवारों के लिए योजनाएँ।","https://www.myscheme.gov.in/","बाल बच्चा"],
-["रोजगार और नौकरी","💼","jobs","नौकरी और रोजगार सेवाएँ।","https://www.ncs.gov.in/","जॉब नौकरी"],
-["श्रमिक कल्याण","👷","jobs","श्रमिकों के लिए सहायता योजनाएँ।","https://www.myscheme.gov.in/","मजदूर लेबर"],
-["व्यापार और स्वरोजगार","🏪","jobs","व्यापार और स्वरोजगार की योजनाएँ।","https://www.myscheme.gov.in/","दुकान बिजनेस"],
-["ड्राइविंग लाइसेंस","🚗","transport","लर्नर और स्थायी लाइसेंस सेवाएँ।","https://sarathi.parivahan.gov.in/","गाड़ी लाइसेंस"],
-["वाहन पंजीकरण","🚙","transport","वाहन पंजीकरण और परिवहन सेवाएँ।","https://parivahan.gov.in/","आरसी रजिस्ट्रेशन"],
-["पैन कार्ड","🪪","central","पैन कार्ड और आयकर सेवाएँ।","https://www.incometax.gov.in/iec/foportal/","पैन PAN"],
-["आधार सेवाएँ","🆔","central","आधार की आधिकारिक सेवाएँ।","https://uidai.gov.in/","आधार UIDAI"],
-["आयुष्मान भारत","🏥","central","स्वास्थ्य योजना की जानकारी।","https://beneficiary.nha.gov.in/","इलाज अस्पताल स्वास्थ्य"],
-["केंद्र सरकारी योजनाएँ","🏛️","central","केंद्र सरकार की योजनाएँ खोजें।","https://www.myscheme.gov.in/","स्कीम योजना"],
-["UMANG सेवाएँ","📱","central","विभिन्न सरकारी विभागों की डिजिटल सेवाएँ।","https://web.umang.gov.in/","उमंग ऑनलाइन"]
-];
-
-let category="all";
-const cards=document.getElementById("cards");
-const search=document.getElementById("search");
-
-function render(){
- const q=search.value.trim().toLocaleLowerCase("hi");
- const found=services.filter(s=>
- (category==="all"||s[2]===category)&&
- (s[0]+" "+s[3]+" "+s[5]).toLocaleLowerCase("hi").includes(q)
- );
- if(!found.length){
-  cards.innerHTML='<div class="empty">इस नाम से कोई सेवा नहीं मिली। दूसरा शब्द लिखें।</div>';
-  return;
- }
- cards.innerHTML=found.map(s=>`
- <article class="card">
-  <div class="cardhead">
-   <div class="symbol">${s[1]}</div>
-   <div><h3>${s[0]}</h3><span class="tag">नागरिक सेवा</span></div>
-  </div>
-  <p>${s[3]}</p>
-  <div class="actions">
-   <a class="primary" href="${s[4]}" target="_blank" rel="noopener">सेवा खोलें ↗</a>
-   <button class="secondary" onclick="shareService('${encodeURIComponent(s[0])}','${encodeURIComponent(s[4])}')">साझा करें</button>
-  </div>
- </article>`).join("");
-}
-
-document.querySelectorAll(".filters button").forEach(b=>{
- b.addEventListener("click",()=>{
-  document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");
-  category=b.dataset.cat;
-  render();
- });
-});
-search.addEventListener("input",render);
-
-function shareService(name,url){
- const message="जन-साथी पर "+decodeURIComponent(name)+" की जानकारी:\n"+decodeURIComponent(url);
- if(navigator.share)navigator.share({title:"जन-साथी",text:message}).catch(()=>{});
- else if(navigator.clipboard)navigator.clipboard.writeText(message).then(()=>alert("जानकारी कॉपी हो गई।"));
- else alert(message);
-}
-
-function shareApp(){
- const message="जन-साथी पर सरकारी सेवाओं की जानकारी देखें:\n"+location.href;
- if(navigator.share)navigator.share({title:"जन-साथी",text:message}).catch(()=>{});
- else if(navigator.clipboard)navigator.clipboard.writeText(message).then(()=>alert("लिंक कॉपी हो गया।"));
- else alert(message);
-}
-
-function findScheme(){
- const need=document.getElementById("need").value;
- const result=document.getElementById("schemeResult");
- if(!need){alert("कृपया अपनी जरूरत चुनें।");return;}
- result.style.display="block";
- result.innerHTML="<b>आपकी चुनी हुई जरूरत: "+need+"</b><br>इस श्रेणी की योजनाओं की पात्रता और आवेदन की जानकारी सरकारी योजना पोर्टल पर जाँचें।<br><br><a href='https://www.myscheme.gov.in/' target='_blank'>आधिकारिक योजना पोर्टल खोलें ↗</a>";
-}
-
-render();
+(function(){
+const langs={
+ hi:{label:'भाषा',subtitle:'सरकारी काम की आसान राह • पंजाब',search:'अपना काम खोजें… जैसे पेंशन, जाति प्रमाणपत्र',clear:'साफ़',section:'आपको कौन-सा काम करना है?',filters:['सभी सेवाएँ','प्रमाणपत्र','पेंशन/सहायता','राशन','ड्राइविंग/वाहन','पढ़ाई','किसान','रोज़गार','पहचान/दस्तावेज़','अन्य काम'],count:'सेवाएँ',empty:'यह सेवा नहीं मिली',emptyText:'दूसरा शब्द लिखकर खोजें या “सरकारी फॉर्म” / “ई-सर्विसेज” खोलें।',security:'सुरक्षा:',securityText:'जन-साथी स्वतंत्र सहायता वेबसाइट है, सरकारी वेबसाइट नहीं। आवेदन हमेशा आधिकारिक पोर्टल पर करें। अपना OTP, पासवर्ड, बैंक PIN या पूरी आधार जानकारी किसी अनजान व्यक्ति को न दें। शुल्क और पात्रता आवेदन से पहले संबंधित विभाग में जाँचें।',helpTitle:'ऑनलाइन आवेदन न हो पाए तो?',helpText:'कई सेवाओं के लिए ऑनलाइन आवेदन के अलावा नज़दीकी सेवा केंद्र (Sewa Kendra) से भी मदद ली जा सकती है।',helpLink:'आवेदन की जानकारी देखें ↗',footer:'जन-साथी • सरकारी सेवाओं तक आसान पहुँच',footerNote:'लिंक संबंधित विभागों के हैं; उपलब्धता और नियम बदल सकते हैं।',quick:['सरकारी फॉर्म','ई-सर्विसेज','DiGi Punjab','शिकायत'],cards:[['पंजाब के सरकारी फॉर्म','विभागवार आवेदन फॉर्म खोजें और डाउनलोड करें।','फॉर्म देखें ↗'],['पंजाब ई-सर्विसेज','ऑनलाइन सेवाएँ, आवेदन और स्थिति जाँच।','सेवा खोलें ↗'],['DiGi Punjab','पंजाब की एकीकृत नागरिक सेवाएँ।','पोर्टल खोलें ↗'],['आय, जाति और निवास प्रमाणपत्र','संबंधित प्रमाणपत्र के लिए ऑनलाइन सेवा देखें।','आवेदन देखें ↗'],['जन्म, मृत्यु और विवाह प्रमाणपत्र','पंजीकरण, प्रमाणपत्र और सुधार संबंधी सेवाएँ।','सेवा देखें ↗'],['पेंशन और सामाजिक सहायता','वृद्धावस्था, विधवा और दिव्यांग पेंशन की जानकारी।','विभाग खोलें ↗'],['राशन कार्ड','नया कार्ड और राशन कार्ड सेवाएँ।','आधिकारिक पोर्टल ↗'],['ड्राइविंग लाइसेंस','लर्नर लाइसेंस, नया लाइसेंस और नवीनीकरण।','आवेदन करें ↗'],['वाहन RC और परिवहन','वाहन पंजीकरण और संबंधित सेवाएँ।','परिवहन पोर्टल ↗'],['PAN कार्ड','पैन से जुड़ी सेवाएँ और आधिकारिक जानकारी।','आयकर पोर्टल ↗'],['आधार कार्ड','आधार की आधिकारिक सेवाएँ और अपडेट जानकारी।','UIDAI खोलें ↗'],['पासपोर्ट','नया पासपोर्ट और नवीनीकरण।','आवेदन करें ↗'],['छात्रवृत्ति और पढ़ाई','छात्रवृत्ति की उपलब्ध योजनाएँ खोजें।','राष्ट्रीय पोर्टल ↗'],['किसान और कृषि योजनाएँ','केंद्र और पंजाब की योजनाएँ खोजें।','योजनाएँ खोजें ↗'],['रोज़गार और कौशल','नौकरी, प्रशिक्षण और रोज़गार सेवाएँ।','पंजाब रोज़गार ↗'],['मेरे लिए कौन-सी योजना?','उपलब्ध सरकारी योजनाएँ और पात्रता खोजें।','योजना खोजें ↗'],['UMANG सरकारी सेवाएँ','केंद्र और राज्यों की डिजिटल सेवाएँ।','UMANG खोलें ↗'],['सरकारी शिकायत','शिकायत या जनसमस्या के लिए पोर्टल।','शिकायत दर्ज करें ↗'],['पुलिस की नागरिक सेवाएँ','पुलिस सत्यापन और उपलब्ध नागरिक सेवाएँ।','आधिकारिक पोर्टल ↗']]},
+ pa:{label:'ਭਾਸ਼ਾ',subtitle:'ਸਰਕਾਰੀ ਕੰਮ ਦਾ ਆਸਾਨ ਰਾਹ • ਪੰਜਾਬ',search:'ਆਪਣਾ ਕੰਮ ਲੱਭੋ… ਜਿਵੇਂ ਪੈਨਸ਼ਨ, ਜਾਤੀ ਸਰਟੀਫਿਕੇਟ',clear:'ਸਾਫ਼ ਕਰੋ',section:'ਤੁਸੀਂ ਕਿਹੜਾ ਕੰਮ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?',filters:['ਸਾਰੀਆਂ ਸੇਵਾਵਾਂ','ਸਰਟੀਫਿਕੇਟ','ਪੈਨਸ਼ਨ/ਸਹਾਇਤਾ','ਰਾਸ਼ਨ','ਡਰਾਈਵਿੰਗ/ਵਾਹਨ','ਪੜ੍ਹਾਈ','ਕਿਸਾਨ','ਰੋਜ਼ਗਾਰ','ਪਛਾਣ/ਦਸਤਾਵੇਜ਼','ਹੋਰ ਕੰਮ'],count:'ਸੇਵਾਵਾਂ',empty:'ਇਹ ਸੇਵਾ ਨਹੀਂ ਮਿਲੀ',emptyText:'ਕੋਈ ਹੋਰ ਸ਼ਬਦ ਲਿਖ ਕੇ ਲੱਭੋ ਜਾਂ ਸਰਕਾਰੀ ਫਾਰਮ / ਈ-ਸੇਵਾਵਾਂ ਖੋਲ੍ਹੋ।',security:'ਸੁਰੱਖਿਆ:',securityText:'ਜਨ-ਸਾਥੀ ਇੱਕ ਸੁਤੰਤਰ ਸਹਾਇਤਾ ਵੈੱਬਸਾਈਟ ਹੈ, ਸਰਕਾਰੀ ਵੈੱਬਸਾਈਟ ਨਹੀਂ। ਅਰਜ਼ੀ ਹਮੇਸ਼ਾ ਸਰਕਾਰੀ ਪੋਰਟਲ ਉੱਤੇ ਹੀ ਦਿਓ। ਆਪਣਾ OTP, ਪਾਸਵਰਡ ਜਾਂ ਬੈਂਕ PIN ਕਿਸੇ ਨਾਲ ਸਾਂਝਾ ਨਾ ਕਰੋ। ਫੀਸ ਅਤੇ ਯੋਗਤਾ ਪਹਿਲਾਂ ਸਬੰਧਤ ਵਿਭਾਗ ਤੋਂ ਜਾਂਚੋ।',helpTitle:'ਜੇ ਆਨਲਾਈਨ ਅਰਜ਼ੀ ਨਾ ਹੋ ਸਕੇ ਤਾਂ?',helpText:'ਕਈ ਸੇਵਾਵਾਂ ਲਈ ਨੇੜਲੇ ਸੇਵਾ ਕੇਂਦਰ ਤੋਂ ਵੀ ਮਦਦ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।',helpLink:'ਅਰਜ਼ੀ ਦੀ ਜਾਣਕਾਰੀ ਵੇਖੋ ↗',footer:'ਜਨ-ਸਾਥੀ • ਸਰਕਾਰੀ ਸੇਵਾਵਾਂ ਤੱਕ ਆਸਾਨ ਪਹੁੰਚ',footerNote:'ਲਿੰਕ ਸਬੰਧਤ ਵਿਭਾਗਾਂ ਦੇ ਹਨ; ਉਪਲਬਧਤਾ ਅਤੇ ਨਿਯਮ ਬਦਲ ਸਕਦੇ ਹਨ।',quick:['ਸਰਕਾਰੀ ਫਾਰਮ','ਈ-ਸੇਵਾਵਾਂ','DiGi Punjab','ਸ਼ਿਕਾਇਤ'],cards:[['ਪੰਜਾਬ ਦੇ ਸਰਕਾਰੀ ਫਾਰਮ','ਵਿਭਾਗ ਅਨੁਸਾਰ ਅਰਜ਼ੀ ਫਾਰਮ ਲੱਭੋ ਅਤੇ ਡਾਊਨਲੋਡ ਕਰੋ।','ਫਾਰਮ ਵੇਖੋ ↗'],['ਪੰਜਾਬ ਈ-ਸੇਵਾਵਾਂ','ਆਨਲਾਈਨ ਸੇਵਾਵਾਂ, ਅਰਜ਼ੀ ਅਤੇ ਸਥਿਤੀ ਦੀ ਜਾਂਚ।','ਸੇਵਾ ਖੋਲ੍ਹੋ ↗'],['DiGi Punjab','ਪੰਜਾਬ ਦੀਆਂ ਇਕੱਠੀਆਂ ਨਾਗਰਿਕ ਸੇਵਾਵਾਂ।','ਪੋਰਟਲ ਖੋਲ੍ਹੋ ↗'],['ਆਮਦਨ, ਜਾਤੀ ਅਤੇ ਰਿਹਾਇਸ਼ ਸਰਟੀਫਿਕੇਟ','ਸਬੰਧਤ ਸਰਟੀਫਿਕੇਟ ਲਈ ਆਨਲਾਈਨ ਸੇਵਾ ਵੇਖੋ।','ਅਰਜ਼ੀ ਵੇਖੋ ↗'],['ਜਨਮ, ਮੌਤ ਅਤੇ ਵਿਆਹ ਸਰਟੀਫਿਕੇਟ','ਰਜਿਸਟ੍ਰੇਸ਼ਨ, ਸਰਟੀਫਿਕੇਟ ਅਤੇ ਸੋਧ ਸੇਵਾਵਾਂ।','ਸੇਵਾ ਵੇਖੋ ↗'],['ਪੈਨਸ਼ਨ ਅਤੇ ਸਮਾਜਿਕ ਸਹਾਇਤਾ','ਬੁਢਾਪਾ, ਵਿਧਵਾ ਅਤੇ ਦਿਵਿਆਂਗ ਪੈਨਸ਼ਨ ਦੀ ਜਾਣਕਾਰੀ।','ਵਿਭਾਗ ਖੋਲ੍ਹੋ ↗'],['ਰਾਸ਼ਨ ਕਾਰਡ','ਨਵਾਂ ਕਾਰਡ ਅਤੇ ਰਾਸ਼ਨ ਕਾਰਡ ਸੇਵਾਵਾਂ।','ਸਰਕਾਰੀ ਪੋਰਟਲ ↗'],['ਡਰਾਈਵਿੰਗ ਲਾਇਸੈਂਸ','ਲਰਨਰ ਲਾਇਸੈਂਸ, ਨਵਾਂ ਲਾਇਸੈਂਸ ਅਤੇ ਨਵੀਨੀਕਰਨ।','ਅਰਜ਼ੀ ਦਿਓ ↗'],['ਵਾਹਨ RC ਅਤੇ ਟਰਾਂਸਪੋਰਟ','ਵਾਹਨ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਅਤੇ ਹੋਰ ਸੇਵਾਵਾਂ।','ਟਰਾਂਸਪੋਰਟ ਪੋਰਟਲ ↗'],['PAN ਕਾਰਡ','PAN ਨਾਲ ਜੁੜੀਆਂ ਸੇਵਾਵਾਂ ਅਤੇ ਜਾਣਕਾਰੀ।','ਇਨਕਮ ਟੈਕਸ ਪੋਰਟਲ ↗'],['ਆਧਾਰ ਕਾਰਡ','ਆਧਾਰ ਦੀਆਂ ਸਰਕਾਰੀ ਸੇਵਾਵਾਂ ਅਤੇ ਅਪਡੇਟ ਜਾਣਕਾਰੀ।','UIDAI ਖੋਲ੍ਹੋ ↗'],['ਪਾਸਪੋਰਟ','ਨਵਾਂ ਪਾਸਪੋਰਟ ਅਤੇ ਨਵੀਨੀਕਰਨ।','ਅਰਜ਼ੀ ਦਿਓ ↗'],['ਵਜ਼ੀਫ਼ਾ ਅਤੇ ਪੜ੍ਹਾਈ','ਵਿਦਿਆਰਥੀ ਵਜ਼ੀਫ਼ਾ ਯੋਜਨਾਵਾਂ ਲੱਭੋ।','ਰਾਸ਼ਟਰੀ ਪੋਰਟਲ ↗'],['ਕਿਸਾਨ ਅਤੇ ਖੇਤੀ ਯੋਜਨਾਵਾਂ','ਕੇਂਦਰ ਅਤੇ ਪੰਜਾਬ ਦੀਆਂ ਯੋਜਨਾਵਾਂ ਲੱਭੋ।','ਯੋਜਨਾਵਾਂ ਲੱਭੋ ↗'],['ਰੋਜ਼ਗਾਰ ਅਤੇ ਹੁਨਰ','ਨੌਕਰੀ, ਸਿਖਲਾਈ ਅਤੇ ਰੋਜ਼ਗਾਰ ਸੇਵਾਵਾਂ।','ਪੰਜਾਬ ਰੋਜ਼ਗਾਰ ↗'],['ਮੇਰੇ ਲਈ ਕਿਹੜੀ ਯੋਜਨਾ?','ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ ਅਤੇ ਯੋਗਤਾ ਲੱਭੋ।','ਯੋਜਨਾ ਲੱਭੋ ↗'],['UMANG ਸਰਕਾਰੀ ਸੇਵਾਵਾਂ','ਕੇਂਦਰ ਅਤੇ ਰਾਜਾਂ ਦੀਆਂ ਡਿਜ਼ੀਟਲ ਸੇਵਾਵਾਂ।','UMANG ਖੋਲ੍ਹੋ ↗'],['ਸਰਕਾਰੀ ਸ਼ਿਕਾਇਤ','ਸ਼ਿਕਾਇਤ ਜਾਂ ਜਨਤਕ ਸਮੱਸਿਆ ਲਈ ਪੋਰਟਲ।','ਸ਼ਿਕਾਇਤ ਦਰਜ ਕਰੋ ↗'],['ਪੁਲਿਸ ਨਾਗਰਿਕ ਸੇਵਾਵਾਂ','ਪੁਲਿਸ ਵੈਰੀਫਿਕੇਸ਼ਨ ਅਤੇ ਨਾਗਰਿਕ ਸੇਵਾਵਾਂ।','ਸਰਕਾਰੀ ਪੋਰਟਲ ↗']]},
+ en:{label:'Language',subtitle:'Easy access to government services • Punjab',search:'Search your task… e.g. pension, caste certificate',clear:'Clear',section:'What service do you need?',filters:['All services','Certificates','Pension/Support','Ration','Driving/Vehicle','Education','Farmer','Employment','ID/Documents','Other'],count:'services',empty:'No service found',emptyText:'Try another search word or open Government Forms / e-Services.',security:'Safety:',securityText:'Jan-Saathi is an independent help website, not a government website. Submit applications only on official portals. Never share your OTP, password, bank PIN or full Aadhaar details with strangers. Check fees and eligibility with the department first.',helpTitle:'Unable to apply online?',helpText:'Many services can also be accessed with help from a nearby Sewa Kendra.',helpLink:'View application information ↗',footer:'Jan-Saathi • Easy access to government services',footerNote:'Links belong to the respective departments; availability and rules may change.',quick:['Government Forms','e-Services','DiGi Punjab','Complaint'],cards:[['Punjab Government Forms','Find and download application forms by department.','View forms ↗'],['Punjab e-Services','Online services, applications and status checks.','Open service ↗'],['DiGi Punjab','Integrated citizen services of Punjab.','Open portal ↗'],['Income, Caste & Residence Certificates','Find the online service for the required certificate.','View application ↗'],['Birth, Death & Marriage Certificates','Registration, certificates and correction services.','View service ↗'],['Pension & Social Assistance','Information on old-age, widow and disability pensions.','Open department ↗'],['Ration Card','New ration card and related services.','Official portal ↗'],['Driving Licence','Learner licence, new licence and renewal.','Apply ↗'],['Vehicle RC & Transport','Vehicle registration and related services.','Transport portal ↗'],['PAN Card','PAN-related services and official information.','Income Tax portal ↗'],['Aadhaar Card','Official Aadhaar services and update information.','Open UIDAI ↗'],['Passport','New passport and renewal.','Apply ↗'],['Scholarships & Education','Find available scholarship schemes.','National portal ↗'],['Farmers & Agriculture Schemes','Find Central and Punjab government schemes.','Find schemes ↗'],['Employment & Skills','Jobs, training and employment services.','Punjab Employment ↗'],['Which scheme is right for me?','Find government schemes and eligibility.','Find a scheme ↗'],['UMANG Government Services','Digital services from Central and State governments.','Open UMANG ↗'],['Government Complaint','Portal for complaints and public grievances.','Register complaint ↗'],['Police Citizen Services','Police verification and available citizen services.','Official portal ↗']]}
+};
+const search=document.getElementById('search'),clear=document.getElementById('clear'),cards=[...document.querySelectorAll('.service')],chips=[...document.querySelectorAll('.chip')],count=document.getElementById('count'),empty=document.getElementById('empty');let category='all',lang='hi';
+const ids=['appSubtitle','sectionTitle','securityTitle','securityText','helpTitle','helpText','helpLink','footerText','footerNote'];
+function setLang(code){lang=code;const t=langs[code];document.documentElement.lang=code==='pa'?'pa':code;document.getElementById('language').value=code;document.querySelector('.langbox label').textContent=t.label;document.getElementById('appSubtitle').textContent=t.subtitle;search.placeholder=t.search;search.setAttribute('aria-label',t.section);clear.textContent=t.clear;document.getElementById('sectionTitle').textContent=t.section;chips.forEach((c,i)=>{c.textContent=t.filters[i];});document.querySelectorAll('.quick a').forEach((a,i)=>{a.lastChild.textContent=t.quick[i];});cards.forEach((card,i)=>{const d=t.cards[i];if(!d)return;card.querySelector('h3').textContent=d[0];card.querySelector('p').textContent=d[1];card.querySelector('a').textContent=d[2];});document.getElementById('securityTitle').textContent=t.security;document.getElementById('securityText').textContent=t.securityText;document.getElementById('helpTitle').textContent=t.helpTitle;document.getElementById('helpText').textContent=t.helpText;document.getElementById('helpLink').textContent=t.helpLink;document.getElementById('footerText').textContent=t.footer;document.getElementById('footerNote').textContent=t.footerNote;empty.querySelector('h2').textContent=t.empty;empty.querySelector('p').textContent=t.emptyText;filterCards();}
+function filterCards(){const q=search.value.trim().toLocaleLowerCase();let n=0;cards.forEach(card=>{const text=(card.innerText+' '+(card.dataset.key||'')).toLocaleLowerCase();const show=(category==='all'||card.dataset.cat===category)&&(!q||text.includes(q));card.classList.toggle('hidden',!show);if(show)n++;});count.textContent=n+' '+langs[lang].count;empty.classList.toggle('hidden',n!==0);}
+search.addEventListener('input',filterCards);clear.addEventListener('click',()=>{search.value='';category='all';chips.forEach(c=>c.classList.toggle('active',c.dataset.filter==='all'));filterCards();search.focus();});chips.forEach(chip=>chip.addEventListener('click',()=>{category=chip.dataset.filter;chips.forEach(c=>c.classList.toggle('active',c===chip));filterCards();}));document.getElementById('language').addEventListener('change',e=>setLang(e.target.value));setLang('hi');
+})();
 </script>
-</body>
-</html>
+</body></html>
